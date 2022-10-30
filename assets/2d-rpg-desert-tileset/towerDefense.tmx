@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.9" tiledversion="1.9.2" orientation="orthogonal" renderorder="right-down" width="20" height="12" tilewidth="64" tileheight="64" infinite="0" nextlayerid="6" nextobjectid="1">
+<map version="1.9" tiledversion="1.9.2" orientation="orthogonal" renderorder="right-down" width="20" height="12" tilewidth="64" tileheight="64" infinite="0" nextlayerid="7" nextobjectid="2">
  <tileset firstgid="1" source="tileset.tsx"/>
+ <objectgroup id="6" name="Object Layer 1">
+  <object id="1" x="0" y="0">
+   <polyline points="0,0 -101.41,158.327 162.798,160.228 164.699,608.812 608.941,609.25 611.707,354.732 477.071,352.887 485.37,97.4466 932.622,102.057 934.467,418.361 1058.04,418.361 1061.73,674.724 1360.51,675.647"/>
+  </object>
+ </objectgroup>
  <layer id="1" name="Dirt" width="20" height="12">
   <data encoding="csv">
 1,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,3,
