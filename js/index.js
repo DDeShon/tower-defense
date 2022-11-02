@@ -26,7 +26,13 @@ class Enemy {
 
   update() {
     this.draw();
-    this.position.x++;
+
+    const waypoint = waypoints[0];
+    const yDistance = waypoint.y - this.position.y;
+    const xDistance = waypoint.x - this.position.x;
+    const angle = Math.atan2(yDistance, xDistance);
+    this.position.x += Mat.cos(angle);
+    this.position.y += Mat.sin(angle);
   }
 }
 
