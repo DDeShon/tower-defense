@@ -10,5 +10,7 @@ c.fillRect(0, 0, canvas.width, canvas.height);
 const image = new Image();
 image.onload = () => {
   c.drawImage(image, 0, 0);
+  c.fillStyle = "red";
+  c.fillRect(100, 100, 100, 100);
 };
 image.src = "img/gameMap.png";
