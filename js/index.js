@@ -30,13 +30,15 @@ class Enemy {
   }
 }
 
-const enemy = new Enemy({ position: { x: 100, y: 100 } });
+const enemy = new Enemy({ position: { x: 150, y: 100 } });
+const enemy2 = new Enemy({ position: { x: 0, y: 100 } });
 
 function animate() {
   requestAnimationFrame(animate);
 
   c.drawImage(image, 0, 0);
   enemy.update();
+  enemy2.update();
 }
 
 animate();
