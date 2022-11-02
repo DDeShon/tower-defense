@@ -9,8 +9,20 @@ c.fillRect(0, 0, canvas.width, canvas.height);
 
 const image = new Image();
 image.onload = () => {
-  c.drawImage(image, 0, 0);
-  c.fillStyle = "red";
-  c.fillRect(100, 100, 100, 100);
+  animate();
 };
 image.src = "img/gameMap.png";
+
+let x = 200;
+
+function animate() {
+  requestAnimationFrame(animate);
+
+  c.drawImage(image, 0, 0);
+
+  c.fillStyle = "red";
+  c.fillRect(x, 100, 100, 100);
+  x++;
+}
+
+animate();
