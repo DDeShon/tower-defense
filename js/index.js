@@ -13,16 +13,30 @@ image.onload = () => {
 };
 image.src = "img/gameMap.png";
 
-let x = 200;
+class Enemy {
+  constructor({ position = { x: 0, y: 0 } }) {
+    this.position = position;
+    this.width = 100;
+    this.height = 100;
+  }
+  draw() {
+    c.fillStyle = "red";
+    c.fillRect(this.position.x, this.position.y, this.width, this.height);
+  }
+
+  update() {
+    this.draw();
+    this.position.x++;
+  }
+}
+
+const enemy = new Enemy({ position: { x: 100, y: 100 } });
 
 function animate() {
   requestAnimationFrame(animate);
 
   c.drawImage(image, 0, 0);
-
-  c.fillStyle = "red";
-  c.fillRect(x, 100, 100, 100);
-  x++;
+  enemy.update();
 }
 
 animate();
