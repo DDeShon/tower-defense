@@ -37,7 +37,8 @@ class Enemy {
 
     if (
       Math.round(this.position.x) === Math.round(waypoint.x) &&
-      Math.round(this.position.y) === Math.round(waypoint.y)
+      Math.round(this.position.y) === Math.round(waypoint.y) &&
+      this.waypointIndex < waypoints.length - 1
     ) {
       this.waypointIndex++;
     }
