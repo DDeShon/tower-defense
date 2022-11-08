@@ -31,8 +31,8 @@ class Enemy {
     const yDistance = waypoint.y - this.position.y;
     const xDistance = waypoint.x - this.position.x;
     const angle = Math.atan2(yDistance, xDistance);
-    this.position.x += Mat.cos(angle);
-    this.position.y += Mat.sin(angle);
+    this.position.x += Math.cos(angle);
+    this.position.y += Math.sin(angle);
   }
 }
 
