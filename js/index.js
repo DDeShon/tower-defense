@@ -44,7 +44,7 @@ class Enemy {
   }
 }
 
-const enemy = new Enemy({ position: { x: 150, y: 100 } });
+const enemy = new Enemy({ position: { x: 250, y: 100 } });
 const enemy2 = new Enemy({ position: { x: 0, y: 100 } });
 
 function animate() {
