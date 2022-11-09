@@ -54,7 +54,7 @@ class Enemy {
 }
 
 const enemies = [];
-for (let i = 0; i < 10; i++) {
+for (let i = 1; i < 10; i++) {
   const xOffset = i * 150;
   enemies.push(
     new Enemy({
