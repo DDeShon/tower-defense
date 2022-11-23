@@ -20,7 +20,6 @@ class BuildingTile {
       mouse.y > this.position.y &&
       mouse.y < this.position.y + this.size
     ) {
-      //   console.log("colliding");
       this.color = "rgba(0, 255, 0, .3)";
     } else this.color = "rgba(255, 255, 255, .0)";
   }
@@ -37,6 +36,7 @@ class Enemy {
       y: this.position.y + this.height / 2,
     };
     this.radius = 50;
+    this.health = 100;
   }
 
   draw() {
@@ -45,6 +45,18 @@ class Enemy {
     c.beginPath();
     c.arc(this.center.x, this.center.y, this.radius, 0, Math.PI * 2);
     c.fill();
+
+    // enemy health bar
+    c.fillStyle = "red";
+    c.fillRect(this.position.x, this.position.y - 15, this.width, 10);
+
+    c.fillStyle = "green";
+    c.fillRect(
+      this.position.x,
+      this.position.y - 15,
+      (this.width * this.health) / 100,
+      10
+    );
   }
 
   update() {
@@ -140,7 +152,7 @@ class Projectile {
       this.enemy.center.x - this.position.x
     );
 
-    const power = 3;
+    const power = 2;
     this.velocity.x = Math.cos(angle) * power;
     this.velocity.y = Math.sin(angle) * power;
 

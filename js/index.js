@@ -31,8 +31,6 @@ buildingTilesData2D.forEach((row, y) => {
   });
 });
 
-// console.log(buildingTiles);
-
 const image = new Image();
 image.onload = () => {
   animate();
@@ -84,7 +82,12 @@ function animate() {
       const yDifference = projectile.enemy.center.y - projectile.position.y;
       const distance = Math.hypot(xDifference, yDifference);
 
+      // when a projectile hits an enemy
       if (distance < projectile.enemy.radius + projectile.radius) {
+        projectile.enemy.health -= 20;
+        if (projectile.enemy.health <= 0) {
+        }
+        console.log(projectile.enemy.health);
         building.projectiles.splice(i, 1);
       }
     }
