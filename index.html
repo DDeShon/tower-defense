@@ -2,10 +2,38 @@
 <script defer src="js/waypoints.js"></script>
 <script defer src="js/classes.js"></script>
 <script defer src="js/index.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link
+  href="https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap"
+  rel="stylesheet"
+/>
+
 <style>
   body {
     background-color: black;
+    font-family: "Patrick Hand", cursive;
   }
 </style>
 
-<canvas></canvas>
+<div style="position: relative; display: inline-block">
+  <canvas></canvas>
+  <div
+    id="gameOver"
+    style="
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      font-size: 150px;
+      color: red;
+      -webkit-text-stroke: 3px blue;
+    "
+  >
+    GAME OVER
+  </div>
+</div>

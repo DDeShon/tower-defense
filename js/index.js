@@ -74,6 +74,7 @@ function animate() {
       if (hearts === 0) {
         console.log("Game Over");
         cancelAnimationFrame(animationId);
+        document.querySelector("#gameOver").style.display = "flex";
       }
     }
   }
