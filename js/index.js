@@ -64,6 +64,11 @@ function animate() {
   for (let i = enemies.length - 1; i >= 0; i--) {
     const enemy = enemies[i];
     enemy.update();
+    if (enemy.position.x > canvas.width) {
+      console.log("decrease hearts");
+      enemies.splice(i, 1);
+      console.log(enemies);
+    }
   }
 
   buildingTiles.forEach((tile) => {
