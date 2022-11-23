@@ -17,12 +17,18 @@ class BuildingTile {
   constructor({ position = { x: 0, y: 0 } }) {
     this.position = position;
     this.size = 64;
-    this.color = "green";
+    this.color = "rgba(255, 255, 255, .15)";
   }
 
   draw() {
     c.fillStyle = this.color;
     c.fillRect(this.position.x, this.position.y, this.size, this.size);
+  }
+
+  update() {
+    this.draw();
+
+    // if ()
   }
 }
 
@@ -44,7 +50,7 @@ buildingTilesData2D.forEach((row, y) => {
   });
 });
 
-console.log(buildingTiles);
+// console.log(buildingTiles);
 
 const image = new Image();
 image.onload = () => {
@@ -114,5 +120,16 @@ function animate() {
     tile.draw();
   });
 }
+
+const mouse = {
+  x: undefined,
+  y: undefined,
+};
+
+window.addEventListener("mousemove", (event) => {
+  mouse.x = event.clientX;
+  mouse.y = event.clientY;
+  console.log(event);
+});
 
 animate();
