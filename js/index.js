@@ -86,6 +86,11 @@ function animate() {
       if (distance < projectile.enemy.radius + projectile.radius) {
         projectile.enemy.health -= 20;
         if (projectile.enemy.health <= 0) {
+          const enemyIndex = enemies.findIndex((enemy) => {
+            return projectile.enemy === enemy;
+          });
+
+          if (enemyIndex > -1) enemies.splice(enemyIndex, 1);
         }
         console.log(projectile.enemy.health);
         building.projectiles.splice(i, 1);
