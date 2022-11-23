@@ -13,25 +13,6 @@ for (let i = 0; i < buildingTilesData.length; i += 20) {
   buildingTilesData2D.push(buildingTilesData.slice(i, i + 20));
 }
 
-class BuildingTile {
-  constructor({ position = { x: 0, y: 0 } }) {
-    this.position = position;
-    this.size = 64;
-    this.color = "rgba(255, 255, 255, .15)";
-  }
-
-  draw() {
-    c.fillStyle = this.color;
-    c.fillRect(this.position.x, this.position.y, this.size, this.size);
-  }
-
-  update() {
-    this.draw();
-
-    // if ()
-  }
-}
-
 const buildingTiles = [];
 
 buildingTilesData2D.forEach((row, y) => {
@@ -117,7 +98,7 @@ function animate() {
   });
 
   buildingTiles.forEach((tile) => {
-    tile.draw();
+    tile.update(mouse);
   });
 }
 
@@ -129,7 +110,6 @@ const mouse = {
 window.addEventListener("mousemove", (event) => {
   mouse.x = event.clientX;
   mouse.y = event.clientY;
-  console.log(event);
 });
 
 animate();
