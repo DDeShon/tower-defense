@@ -54,9 +54,11 @@ function animate() {
   requestAnimationFrame(animate);
 
   c.drawImage(image, 0, 0);
-  enemies.forEach((enemy) => {
+
+  for (let i = enemies.length - 1; i >= 0; i--) {
+    const enemy = enemies[i];
     enemy.update();
-  });
+  }
 
   buildingTiles.forEach((tile) => {
     tile.update(mouse);
@@ -92,7 +94,6 @@ function animate() {
 
           if (enemyIndex > -1) enemies.splice(enemyIndex, 1);
         }
-        console.log(projectile.enemy.health);
         building.projectiles.splice(i, 1);
       }
     }
@@ -116,7 +117,6 @@ canvas.addEventListener("click", (event) => {
     );
     activeTile.isOccupied = true;
   }
-  console.log(buildings);
 });
 
 window.addEventListener("mousemove", (event) => {
