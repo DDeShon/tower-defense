@@ -90,6 +90,8 @@ class Building {
       }),
     ];
     this.radius = 250;
+    this.target;
+    this.frames = 0;
   }
 
   draw() {
