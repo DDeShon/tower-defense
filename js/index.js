@@ -7,6 +7,41 @@ canvas.height = 768;
 c.fillStyle = "white";
 c.fillRect(0, 0, canvas.width, canvas.height);
 
+const buildingTilesData2D = [];
+
+for (let i = 0; i < buildingTilesData.length; i += 20) {
+  buildingTilesData2D.push(buildingTilesData.slice(i, i + 20));
+}
+
+class BuildingTile {
+  constructor({ position = { x: 0, y: 0 } }) {
+    this.position = position;
+    this.size = 64;
+  }
+
+  draw() {
+    c.fillRect(this.position.x, this.position.y, this.size, this.size);
+  }
+}
+
+const buildingTiles = [];
+
+buildingTilesData2D.forEach((row) => {
+  row.forEach((symbol) => {
+    if (symbol === 14) {
+      // add building placement tile here
+      buildingTiles.push(
+        new BuildingTile({
+          position: {
+            x: 0,
+            y: 0,
+          },
+        })
+      );
+    }
+  });
+});
+
 const image = new Image();
 image.onload = () => {
   animate();
