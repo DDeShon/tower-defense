@@ -67,9 +67,20 @@ function animate() {
   buildings.forEach((building) => {
     building.draw();
 
-    building.projectiles.forEach((projectile) => {
+    for (let i = building.projectiles.length - 1; i >= 0; i--) {
+      const projectile = building.projectiles[i];
+
       projectile.update();
-    });
+
+      const xDifference = projectile.enemy.center.x - projectile.position.x;
+      const yDifference = projectile.enemy.center.y - projectile.position.y;
+      const distance = Math.hypot(xDifference, yDifference);
+
+      if (distance < projectile.enemy.radius + projectile.radius) {
+        building.projectiles.splice(i, 1);
+      }
+      console.log(distance);
+    }
   });
 }
 

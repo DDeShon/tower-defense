@@ -36,10 +36,15 @@ class Enemy {
       x: this.position.x + this.width / 2,
       y: this.position.y + this.height / 2,
     };
+    this.radius = 50;
   }
+
   draw() {
     c.fillStyle = "red";
-    c.fillRect(this.position.x, this.position.y, this.width, this.height);
+    // c.fillRect(this.position.x, this.position.y, this.width, this.height);
+    c.beginPath();
+    c.arc(this.center.x, this.center.y, this.radius, 0, Math.PI * 2);
+    c.fill();
   }
 
   update() {
@@ -81,28 +86,37 @@ class Building {
           x: this.center.x,
           y: this.center.y,
         },
+        enemy: enemies[0],
       }),
     ];
+    this.radius = 250;
   }
 
   draw() {
     c.fillStyle = "blue";
     c.fillRect(this.position.x, this.position.y, this.width, 64);
+
+    c.beginPath();
+    c.arc(this.center.x, this.center.y, this.radius, 0, Math.PI * 2);
+    c.fillStyle = "rgba(0, 0, 255, .15)";
+    c.fill();
   }
 }
 
 class Projectile {
-  constructor({ position = { x: 0, y: 0 } }) {
+  constructor({ position = { x: 0, y: 0 }, enemy }) {
     this.position = position;
     this.velocity = {
       x: 0,
       y: 0,
     };
+    this.enemy = enemy;
+    this.radius = 10;
   }
 
   draw() {
     c.beginPath();
-    c.arc(this.position.x, this.position.y, 10, 0, Math.PI * 2);
+    c.arc(this.position.x, this.position.y, this.radius, 0, Math.PI * 2);
     c.fillStyle = "purple";
     c.fill();
   }
@@ -115,8 +129,9 @@ class Projectile {
       enemies[0].center.x - this.position.x
     );
 
-    this.velocity.x = Math.cos(angle);
-    this.velocity.y = Math.sin(angle);
+    const power = 3;
+    this.velocity.x = Math.cos(angle) * power;
+    this.velocity.y = Math.sin(angle) * power;
 
     this.position.x += this.velocity.x;
     this.position.y += this.velocity.y;
