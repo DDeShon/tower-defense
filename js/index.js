@@ -49,6 +49,9 @@ for (let i = 1; i < 10; i++) {
   );
 }
 
+const buildings = [];
+let activeTile = undefined;
+
 function animate() {
   requestAnimationFrame(animate);
 
@@ -70,6 +73,22 @@ const mouse = {
 window.addEventListener("mousemove", (event) => {
   mouse.x = event.clientX;
   mouse.y = event.clientY;
+
+  activeTile = null;
+  for (let i = 0; i < buildingTiles.length; i++) {
+    const tile = buildingTiles[i];
+    if (
+      mouse.x > tile.position.x &&
+      mouse.x < tile.position.x + tile.size &&
+      mouse.y > tile.position.y &&
+      mouse.y < tile.position.y + tile.size
+    ) {
+      activeTile = tile;
+      break;
+    }
+  }
+
+  console.log(activeTile);
 });
 
 animate();

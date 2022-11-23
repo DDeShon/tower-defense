@@ -19,7 +19,7 @@ class BuildingTile {
       mouse.y > this.position.y &&
       mouse.y < this.position.y + this.size
     ) {
-      console.log("colliding");
+      //   console.log("colliding");
       this.color = "rgba(0, 255, 0, .3)";
     } else this.color = "rgba(255, 255, 255, .0)";
   }
@@ -62,5 +62,16 @@ class Enemy {
     ) {
       this.waypointIndex++;
     }
+  }
+}
+
+class Building {
+  constructor({ position = { x: 0, y: 0 } }) {
+    this.position = position;
+  }
+
+  draw() {
+    c.fillStyle = "blue";
+    c.fillRect(this.position.x, this.position.y, 64, 64);
   }
 }
