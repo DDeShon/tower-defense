@@ -3,6 +3,7 @@ class BuildingTile {
     this.position = position;
     this.size = 64;
     this.color = "rgba(255, 255, 255, .0)";
+    this.occupied = false;
   }
 
   draw() {

@@ -63,12 +63,31 @@ function animate() {
   buildingTiles.forEach((tile) => {
     tile.update(mouse);
   });
+
+  buildings.forEach((building) => {
+    building.draw();
+  });
 }
 
 const mouse = {
   x: undefined,
   y: undefined,
 };
+
+canvas.addEventListener("click", (event) => {
+  if (activeTile && !activeTile.isOccupied) {
+    buildings.push(
+      new Building({
+        position: {
+          x: activeTile.position.x,
+          y: activeTile.position.y,
+        },
+      })
+    );
+    activeTile.isOccupied = true;
+  }
+  console.log(buildings);
+});
 
 window.addEventListener("mousemove", (event) => {
   mouse.x = event.clientX;
@@ -87,8 +106,6 @@ window.addEventListener("mousemove", (event) => {
       break;
     }
   }
-
-  console.log(activeTile);
 });
 
 animate();
