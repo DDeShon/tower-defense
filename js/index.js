@@ -17,30 +17,34 @@ class BuildingTile {
   constructor({ position = { x: 0, y: 0 } }) {
     this.position = position;
     this.size = 64;
+    this.color = "green";
   }
 
   draw() {
+    c.fillStyle = this.color;
     c.fillRect(this.position.x, this.position.y, this.size, this.size);
   }
 }
 
 const buildingTiles = [];
 
-buildingTilesData2D.forEach((row) => {
-  row.forEach((symbol) => {
+buildingTilesData2D.forEach((row, y) => {
+  row.forEach((symbol, x) => {
     if (symbol === 14) {
       // add building placement tile here
       buildingTiles.push(
         new BuildingTile({
           position: {
-            x: 0,
-            y: 0,
+            x: x * 64,
+            y: y * 64,
           },
         })
       );
     }
   });
 });
+
+console.log(buildingTiles);
 
 const image = new Image();
 image.onload = () => {
@@ -104,6 +108,10 @@ function animate() {
   c.drawImage(image, 0, 0);
   enemies.forEach((enemy) => {
     enemy.update();
+  });
+
+  buildingTiles.forEach((tile) => {
+    tile.draw();
   });
 }
 
