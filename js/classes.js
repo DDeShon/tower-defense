@@ -70,6 +70,14 @@ class Building {
   constructor({ position = { x: 0, y: 0 } }) {
     this.position = position;
     this.width = 64 * 2;
+    this.projectiles = [
+      new Projectile({
+        position: {
+          x: this.position.x,
+          y: this.position.y,
+        },
+      }),
+    ];
   }
 
   draw() {
@@ -85,5 +93,12 @@ class Projectile {
       x: 0,
       y: 0,
     };
+  }
+
+  draw() {
+    c.beginPath();
+    c.arc(this.position.x, this.position.y, 10, 0, Math.PI * 2);
+    c.fillStyle = "purple";
+    c.fill();
   }
 }
