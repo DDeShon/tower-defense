@@ -54,6 +54,7 @@ function spawnEnemies(spawnCount) {
 const buildings = [];
 let activeTile = undefined;
 let enemyCount = 3;
+let hearts = 10;
 spawnEnemies(enemyCount);
 
 function animate() {
@@ -64,11 +65,20 @@ function animate() {
   for (let i = enemies.length - 1; i >= 0; i--) {
     const enemy = enemies[i];
     enemy.update();
+
     if (enemy.position.x > canvas.width) {
-      console.log("decrease hearts");
+      hearts -= 1;
       enemies.splice(i, 1);
-      console.log(enemies);
+      console.log(hearts);
+
+      if (hearts === 0) console.log("Game Over");
     }
+  }
+
+  // tracking amount of enemies
+  if (enemies.length === 0) {
+    enemyCount += 2;
+    spawnEnemies(enemyCount);
   }
 
   buildingTiles.forEach((tile) => {
@@ -105,12 +115,6 @@ function animate() {
           });
 
           if (enemyIndex > -1) enemies.splice(enemyIndex, 1);
-        }
-
-        // tracking amount of enemies
-        if (enemies.length === 0) {
-          enemyCount += 2;
-          spawnEnemies(enemyCount);
         }
 
         // console.log(projectile.enemy.health);
