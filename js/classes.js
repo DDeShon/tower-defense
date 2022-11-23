@@ -2,7 +2,7 @@ class BuildingTile {
   constructor({ position = { x: 0, y: 0 } }) {
     this.position = position;
     this.size = 64;
-    this.color = "rgba(255, 255, 255, .15)";
+    this.color = "rgba(255, 255, 255, .0)";
   }
 
   draw() {
@@ -20,7 +20,8 @@ class BuildingTile {
       mouse.y < this.position.y + this.size
     ) {
       console.log("colliding");
-    }
+      this.color = "rgba(0, 255, 0, .3)";
+    } else this.color = "rgba(255, 255, 255, .0)";
   }
 }
 
