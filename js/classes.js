@@ -106,4 +106,19 @@ class Projectile {
     c.fillStyle = "purple";
     c.fill();
   }
+
+  update() {
+    this.draw();
+
+    const angle = Math.atan2(
+      enemies[0].position.y - this.position.y,
+      enemies[0].position.x - this.position.x
+    );
+
+    this.velocity.x = Math.cos(angle);
+    this.velocity.y = Math.sin(angle);
+
+    this.position.x += this.velocity.x;
+    this.position.y += this.velocity.y;
+  }
 }
