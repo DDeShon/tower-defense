@@ -69,7 +69,7 @@ function animate() {
     if (enemy.position.x > canvas.width) {
       hearts -= 1;
       enemies.splice(i, 1);
-      console.log(hearts);
+      document.querySelector("#hearts").innerHTML = hearts;
 
       if (hearts === 0) {
         console.log("Game Over");
