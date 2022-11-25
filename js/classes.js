@@ -71,7 +71,7 @@ class Enemy {
     const xDistance = waypoint.x - this.center.x;
     const angle = Math.atan2(yDistance, xDistance);
 
-    const speed = 3;
+    const speed = 2;
 
     this.velocity.x = Math.cos(angle) * speed;
     this.velocity.y = Math.sin(angle) * speed;
@@ -117,7 +117,7 @@ class Building {
 
     c.beginPath();
     c.arc(this.center.x, this.center.y, this.radius, 0, Math.PI * 2);
-    c.fillStyle = "rgba(0, 0, 255, .15)";
+    c.fillStyle = "rgba(0, 0, 255, .10)";
     c.fill();
   }
 
@@ -165,7 +165,7 @@ class Projectile {
       this.enemy.center.x - this.position.x
     );
 
-    const power = 2;
+    const power = 4;
     this.velocity.x = Math.cos(angle) * power;
     this.velocity.y = Math.sin(angle) * power;
 

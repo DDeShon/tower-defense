@@ -119,7 +119,11 @@ function animate() {
             return projectile.enemy === enemy;
           });
 
-          if (enemyIndex > -1) enemies.splice(enemyIndex, 1);
+          if (enemyIndex > -1) {
+            enemies.splice(enemyIndex, 1);
+            coins += 25;
+            document.querySelector("#coins").innerHTML = coins;
+          }
         }
 
         // console.log(projectile.enemy.health);
