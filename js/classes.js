@@ -117,7 +117,7 @@ class Building {
 
     c.beginPath();
     c.arc(this.center.x, this.center.y, this.radius, 0, Math.PI * 2);
-    c.fillStyle = "rgba(0, 0, 255, .05)";
+    c.fillStyle = "rgba(0, 0, 255, .10)";
     c.fill();
   }
 
