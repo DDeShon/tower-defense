@@ -14,11 +14,13 @@ class Enemy {
       x: 0,
       y: 0,
     };
+    // this.image = new Image();
+    // this.image.src = "img/orc.png";
   }
 
   draw() {
+    // c.drawImage(this.image, this.position.x, this.position.y);
     c.fillStyle = "red";
-    // c.fillRect(this.position.x, this.position.y, this.width, this.height);
     c.beginPath();
     c.arc(this.center.x, this.center.y, this.radius, 0, Math.PI * 2);
     c.fill();
