@@ -1,8 +1,8 @@
 class Sprite {
-  constructor({ position = { x: 0, y: 0 } }) {
+  constructor({ position = { x: 0, y: 0 }, imageSrc }) {
     this.position = position;
     this.image = new Image();
-    this.image.src = "img/projectile.png";
+    this.image.src = imageSrc;
   }
 
   draw() {

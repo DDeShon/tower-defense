@@ -1,5 +1,6 @@
-class Enemy {
+class Enemy extends Sprite {
   constructor({ position = { x: 0, y: 0 } }) {
+    super({ position, imageSrc: "img/orc.png" });
     this.position = position;
     this.width = 100;
     this.height = 100;
@@ -19,11 +20,12 @@ class Enemy {
   }
 
   draw() {
+    super.draw();
     // c.drawImage(this.image, this.position.x, this.position.y);
-    c.fillStyle = "red";
-    c.beginPath();
-    c.arc(this.center.x, this.center.y, this.radius, 0, Math.PI * 2);
-    c.fill();
+    // c.fillStyle = "red";
+    // c.beginPath();
+    // c.arc(this.center.x, this.center.y, this.radius, 0, Math.PI * 2);
+    // c.fill();
 
     // enemy health bar
     c.fillStyle = "red";
