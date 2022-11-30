@@ -20,7 +20,6 @@ class Building extends Sprite {
     this.projectiles = [];
     this.radius = 250;
     this.target;
-    this.elapsedSpawnTime = 0;
   }
 
   draw() {
@@ -34,18 +33,25 @@ class Building extends Sprite {
 
   update() {
     this.draw();
-    if (this.elapsedSpawnTime % 100 === 0 && this.target) {
-      this.projectiles.push(
-        new Projectile({
-          position: {
-            x: this.center.x,
-            y: this.center.y,
-          },
-          enemy: this.target,
-        })
-      );
-    }
+    super.update();
 
-    this.elapsedSpawnTime++;
+    if (
+      this.target &&
+      this.frames.current === 6 &&
+      this.frames.elapsed % this.frames.delay === 0
+    )
+      this.shoot();
+  }
+
+  shoot() {
+    this.projectiles.push(
+      new Projectile({
+        position: {
+          x: this.center.x - 20,
+          y: this.center.y - 110,
+        },
+        enemy: this.target,
+      })
+    );
   }
 }

@@ -39,7 +39,9 @@ class Sprite {
       crop.width,
       crop.height
     );
+  }
 
+  update() {
     // creates animation
     this.frames.elapsed++;
     if (this.frames.elapsed % this.frames.delay === 0) {

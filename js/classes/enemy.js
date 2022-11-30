@@ -27,6 +27,7 @@ class Enemy extends Sprite {
 
   draw() {
     super.draw();
+    super.update();
     // c.drawImage(this.image, this.position.x, this.position.y);
     // c.fillStyle = "red";
     // c.beginPath();
