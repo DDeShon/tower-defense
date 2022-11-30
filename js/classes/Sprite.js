@@ -5,18 +5,23 @@ class Sprite {
     this.image.src = imageSrc;
     this.frames = {
       max: frames.max,
+      current: 0,
+      elapsed: 0,
+      delay: 3,
     };
   }
 
   draw() {
+    const cropWidth = this.image.width / this.frames.max;
     const crop = {
       position: {
-        x: 0,
+        x: cropWidth * this.frames.current,
         y: 0,
       },
-      width: this.image.width / this.frames.max,
+      width: cropWidth,
       height: this.image.height,
     };
+
     c.drawImage(
       this.image,
       crop.position.x,
@@ -28,5 +33,14 @@ class Sprite {
       crop.width,
       crop.height
     );
+
+    // creates animation
+    this.frames.elapsed++;
+    if (this.frames.elapsed % this.frames.delay === 0) {
+      this.frames.current++;
+      if (this.frames.current >= this.frames.max - 1) {
+        this.frames.current = 0;
+      }
+    }
   }
 }
