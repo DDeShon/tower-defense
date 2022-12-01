@@ -137,6 +137,7 @@ function animate() {
           }
         }
 
+        // create the explosion when a projectile hits an enemy
         explosions.push(
           new Sprite({
             position: { x: projectile.position.x, y: projectile.position.y },
