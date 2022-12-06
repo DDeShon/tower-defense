@@ -54,6 +54,7 @@ function spawnEnemies(spawnCount) {
 const buildings = [];
 let activeTile = undefined;
 let enemyCount = 3;
+let waveCount = 1;
 let hearts = 10;
 let coins = 100;
 const explosions = [];
