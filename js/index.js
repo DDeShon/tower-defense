@@ -95,6 +95,7 @@ function animate() {
   // tracking amount of enemies
   if (enemies.length === 0) {
     enemyCount += 2;
+    // track enemy waves
     waveCount += 1;
     spawnEnemies(enemyCount);
   }
